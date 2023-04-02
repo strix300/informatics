@@ -1,0 +1,92 @@
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+void zadanie1();
+void zadanie2();
+void zadanie3();
+
+int main()
+{
+	setlocale(LC_ALL, "RUS");
+	int menu = 1;
+	while (menu > 0)
+	{
+		system("cls");
+		cout << "введите номер задания от 1 до 3, 4 чтобы выйти" << endl;
+		cin >> menu;
+		switch (menu)
+		{
+		case 1:
+			system("cls");
+			zadanie1();
+			break;
+		case 2:
+			system("cls");
+			zadanie2();
+			break;
+		case 3:
+			system("cls");
+			zadanie3();
+			break;
+		case 4:
+			menu = 0;
+			break;
+		}
+
+	}
+}
+
+void zadanie1()
+{
+	double a = 12.0 / 11.0; // результат деления 12 на 11
+	double b = sqrt(68.0); // корень из 68
+
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+
+	if (abs(a - 1.091) < abs(b - 8.246)) {
+		cout << "Равенство 12/11=1.091 точнее" << endl;
+	}
+	else {
+		cout << "Равенство корень 68=8.246 точнее" << endl;
+	}
+	system("pause");
+}
+
+void zadanie2()
+{
+	double x = 0.5532; // число, которое нужно округлить
+	double dx = 0.0014; // погрешность измерения
+	int precision = 2; // число верных знаков после запятой
+
+	double x_rounded = round(x / pow(10, -precision)) * pow(10, -precision); // округление числа
+	double dx_rounded = round(dx / pow(10, -precision)) * pow(10, -precision); // округление погрешности
+	double absolute_error = dx_rounded; // абсолютная погрешность
+
+	cout << "Исходное число: " << x << endl;
+	cout << "Округленное число: " << x_rounded << endl;
+	cout << "Погрешность измерения: " << dx << endl;
+	cout << "Округленная погрешность: " << dx_rounded << endl;
+	cout << "Абсолютная погрешность: " << absolute_error << endl;
+	system("pause");
+}
+
+void zadanie3()
+{
+	double x = 3.4479; // приближенное число
+	double precision = 0.001; // точность измерения
+
+	double absolute_error_limit = precision; // предельная абсолютная погрешность
+	double relative_error_limit = precision / x; // предельная относительная погрешность
+
+	cout << "Значение числа: " << x << endl;
+	cout << "Точность измерения: " << precision << endl;
+
+	// вычисление предельной абсолютной погрешности
+	cout << "Предельная абсолютная погрешность: " << absolute_error_limit << endl;
+
+	// вычисление предельной относительной погрешности
+	cout << "Предельная относительная погрешность: " << relative_error_limit << endl;
+	system("pause");
+}
